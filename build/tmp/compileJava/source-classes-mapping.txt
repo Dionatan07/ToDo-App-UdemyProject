@@ -1,8 +1,12 @@
-model/Task.java
- model.Task
-model/project.java
- model.project
 util/ConnectionFactory.java
  util.ConnectionFactory
+model/Task.java
+ model.Task
+controler/TaskController.java
+ controler.TaskController
+model/Project.java
+ model.Project
+controler/ProjectController.java
+ controler.ProjectController
 TodoApp/Main.java
  TodoApp.Main

@@ -1,18 +1,25 @@
 package TodoApp;
 
+import controler.ProjectController;
 import java.sql.Connection;
+import java.util.List;
+import model.Project;
 import util.ConnectionFactory;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Connection c = ConnectionFactory.getConnection();
+        ProjectController projectController = new ProjectController();
 
-        ConnectionFactory.closeConnection(c);
-
+        Project project = new Project();
+       
         
-        System.out.println(c);
+//        List<Project> projects = projectController.getAll();
+//        System.out.println("Total de projetos: " + projects.size());
+        
+        projectController.removeById(1);
+
     }
 
 }

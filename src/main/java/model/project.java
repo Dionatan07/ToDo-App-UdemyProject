@@ -2,7 +2,7 @@ package model;
 
 import java.util.Date;
 
-public class project {
+public class Project {
 
     private int id;
     private String name;
@@ -10,12 +10,17 @@ public class project {
     private Date createdAt;
     private Date updatedAt;
 
-    public project(int id, String name, String description, Date createdAt, Date updatedAt) {
+    public Project(int id, String name, String description, Date createdAt, Date updatedAt) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
+    }
+    
+    public Project(){
+        this.createdAt = new Date();
+        this.updatedAt = new Date();
     }
 
     public int getId() {
