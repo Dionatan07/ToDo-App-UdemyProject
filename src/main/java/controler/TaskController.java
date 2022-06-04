@@ -13,7 +13,7 @@ import util.ConnectionFactory;
 public class TaskController {
 
     public void save(Task task) {
-        String sql = "INSERT INTO task (idProject,"
+        String sql = "INSERT INTO tasks (idProject,"
                 + "name,"
                 + "description,"
                 + "completed,"
@@ -33,13 +33,13 @@ public class TaskController {
             statement.setString(3, task.getDescription());
             statement.setBoolean(4, task.isIsCompleted());
             statement.setString(5, task.getNotes());
-            statement.setDate(6, new Date(task.getCreatedAt().getTime()));
+            statement.setDate(6, new Date(task.getDeadline().getTime()));
             statement.setDate(7, new Date(task.getCreatedAt().getTime()));
             statement.setDate(8, new Date(task.getUpdatedAt().getTime()));
             statement.execute();
 
         } catch (SQLException ex) {
-            throw new RuntimeException("Erro ao salvar a tarefa ", ex);
+            throw new RuntimeException("Erro ao salvar a tarefa " + ex.getMessage());
         } finally {
             ConnectionFactory.closeConnection(connection, statement);
 
@@ -52,7 +52,7 @@ public class TaskController {
                 + "description = ?,"
                 + "notes = ?,"
                 + "completed = ?,"
-                + "deadeline = ?,"
+                + "deadline = ?,"
                 + "createdAt = ?,"
                 + "updatedAt = ? "
                 + "WHERE id = ?";
@@ -81,7 +81,7 @@ public class TaskController {
 
     }
 
-    public void removeById(int taskId) throws SQLException {
+    public void removeById(int taskId){
 
         String sql = "DELETE FROM tasks WHERE id = ?";
 
